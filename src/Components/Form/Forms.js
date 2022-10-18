@@ -1,16 +1,11 @@
 import React from 'react';
-import auth from '../../services/authService';
-import formService from '../../services/formService';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Container, CssBaseline, CircularProgress } from '@material-ui/core';
 
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import auth from '../../services/authService';
+import formService from '../../services/formService';
 import OneForm from './OneForm';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
-
 
 const useStyles = makeStyles((theme)=>
     ({
@@ -60,7 +55,6 @@ function Forms(props) {
             );
             
         }
-        
         
     }, [props.userId])
 

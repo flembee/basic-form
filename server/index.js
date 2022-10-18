@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL,{
 const storage = multer.diskStorage({
   destination: './public',
   filename(req, file, cb) {
-    cb(null, "google-form-content-questions-" + Date.now() + path.extname(file.originalname));
+    cb(null, "basic-form-content-questions-" + Date.now() + path.extname(file.originalname));
   },
 });
 const upload = multer({ storage });

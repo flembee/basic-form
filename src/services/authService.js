@@ -29,24 +29,6 @@ export default   {
       setTimeout(cb, 100);
     },
 
-
-    loginWithGoogle(res) {
-      var data = {
-        name: res.profileObj.name,
-        email : res.profileObj.email,
-        image: res.profileObj.imageUrl
-      }
-
-      return axios
-        .post(API_URL + "login", data)
-        .then(response => {
-          if (response.data.accessToken) {
-            localStorage.setItem("userTicket", JSON.stringify(response.data.accessToken));          
-          }
-          return response.data;
-        });
-    },
-
     loginAsGuest(){
       var userData = {
         name: "Antonio Nardi", 

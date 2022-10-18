@@ -2,27 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { makeStyles } from '@material-ui/core/styles';
-import {Grid} from '@material-ui/core';
 
-import { Paper, Typography } from '@material-ui/core';
+import { Grid, Paper, Typography, Tabs, Tab, Box, AppBar, Toolbar,
+         Button, Dialog, DialogActions, DialogContent, DialogContentText,
+         DialogTitle, Snackbar, IconButton} from '@material-ui/core';
 
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SendIcon from '@material-ui/icons/Send';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import ViewListIcon from '@material-ui/icons/ViewList';
 
@@ -30,8 +17,6 @@ import QuestionsTab from './QuestionsTab';
 import ResponseTab from '../Response/ResponseTab';
 import formService from '../../services/formService';
 import auth from '../../services/authService';
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -60,15 +45,12 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-
-
 function EditForm(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const [user, setUser] = React.useState({})
   const [formID, setFormID] = React.useState("");
-
 
   const [formDeatils, setFormDetails] = React.useState({});
   const [openOfAlert, setOpenOfAlert] = React.useState(false);
@@ -112,7 +94,6 @@ function EditForm(props) {
     setOpen(false);
   };
 
-
     React.useEffect(() => {
         var formId = props.match.params.formId
         if(formId !== undefined){
@@ -133,7 +114,6 @@ function EditForm(props) {
          );
         }
     },[props.match.params.formId]);
-
 
     return (
         <div>

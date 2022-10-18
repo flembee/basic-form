@@ -2,30 +2,21 @@ import React from 'react'
 import {Grid} from '@material-ui/core';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-import { Paper, Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import { Paper, Typography, TextField, Accordion, AccordionSummary,
+         AccordionDetails, Button, IconButton, Radio, FormControlLabel,
+         AccordionActions, Divider, CircularProgress } from '@material-ui/core';
 import CropOriginalIcon from '@material-ui/icons/CropOriginal';
 import CloseIcon from '@material-ui/icons/Close';
-import Radio from '@material-ui/core/Radio';
-
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AccordionActions from '@material-ui/core/AccordionActions';
-import Divider from '@material-ui/core/Divider';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+import SaveIcon from '@material-ui/icons/Save';
+
 import ImageUplaodModel from './ImageUplaodModel';
 import formService from '../../services/formService';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import SaveIcon from '@material-ui/icons/Save';
 
 function QuestionsTab(props) {
 
@@ -301,8 +292,8 @@ function QuestionsTab(props) {
                         fullWidth={true} 
                         placeholder="Question Text" 
                         style={{marginBottom: '18px'}}  
-                        rows={2}
-                        rowsMax={20}
+                        minRows={2}
+                        maxRows={20}
                         multiline={true}
 
                         value={ques.questionText}
@@ -432,15 +423,12 @@ function QuestionsTab(props) {
     )
   }
 
-
-
-
   return (
        <div style={{marginTop:'15px', marginBottom: '7px', paddingBottom:"30px"}}>
            <Grid
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             >
               {loadingFormData ? (<CircularProgress />):""}
