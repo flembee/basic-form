@@ -10,11 +10,11 @@ import ViewListIcon from '@material-ui/icons/ViewList';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      <Link color="inherit" href="https://www.stillthristy.in/">
-      Rohit Saini
+      <Link color="inherit" href="https://www.flembee.com">
+        Flembee
       </Link>
       { ' © '}
-      <Link color="inherit" href="https://github.com/rohitsaini1196">
+      <Link color="inherit" href="https://github.com/flembee">
         GitHub
       </Link>{' '}
       {new Date().getFullYear()}
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)',
+    backgroundImage: 'url(https://media.istockphoto.com/photos/digital-screen-background-color-screen-monitor-or-tv-with-glitch-and-picture-id1371967715?b=1&k=20&m=1371967715&s=170667a&w=0&h=sMdLrOdRVUGnqZHqXNmyv1-2IIBk2dKtj30qWQ-4cwE=)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -128,7 +128,7 @@ export function LandingPage () {
             <br></br>
             <br></br>
           <Paper className={classes.mainFeaturedPost} >
-            {<img style={{ display: 'none' }} src="https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="gg" />}
+            {<img style={{ display: 'none' }} src="https://media.istockphoto.com/photos/digital-screen-background-color-screen-monitor-or-tv-with-glitch-and-picture-id1371967715?b=1&k=20&m=1371967715&s=170667a&w=0&h=sMdLrOdRVUGnqZHqXNmyv1-2IIBk2dKtj30qWQ-4cwE=" alt="gg" />}
             <div className={classes.overlay} />
             <Grid container>
               <Grid item md={6}>
@@ -137,7 +137,8 @@ export function LandingPage () {
                     Basic Forms
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                    Plan your next camping trip, manage event registrations, whip up a quick poll, create a pop quiz, and much more.
+                    Basic open source form with some additional features. Developed with React JS using Material UI for the front-end, NodeJS and MongoDB for the back-end. 
+                    The UI is inspired by Google forms.
                   </Typography>
                   <div className={classes.buttons}>
                     <Button variant="contained" color="primary" className={classes.buttongg} onClick={loginClick}>
@@ -164,19 +165,19 @@ export function LandingPage () {
                     <div className={classes.cardDetails}>
                       <CardContent>
                         <Typography component="h2" variant="h5">
-                        Survey with style
+                        Forms with style
                         </Typography>
                         <Typography variant="subtitle1"  style={{color: 'teal'}}>
                           Style
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
-                        Use your own photo or logo, and Forms will pick just the right colors to complete your own unique form, or choose from a set of curated themes to set the tone. We can store images for future.
+                        Create your own and unique form, choose your favorite question format. And you can store images for future.
                         </Typography>
                        
                       </CardContent>
                     </div>
                     <Hidden xsDown>
-                      <CardMedia className={classes.cardMedia} image="https://images.pexels.com/photos/4823233/pexels-photo-4823233.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" title="" />
+                      <CardMedia className={classes.cardMedia} image="https://wallpaper.dog/large/20506218.jpg" title="" />
                     </Hidden>
                   </Card>
                 </CardActionArea>
@@ -188,18 +189,18 @@ export function LandingPage () {
                       <CardContent>
                         <Typography component="h2" variant="h5">
                          
-                          Organized & analyzed
+                          Take a survey
                         </Typography>
                         <Typography variant="subtitle1"  style={{color: 'teal'}}>
-                        organize
+                        Submit
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
-                        Responses to your surveys are neatly and automatically collected in Forms, with real time response info and charts. Or, download a csv/json or load data in google sheets.                        </Typography>
+                        Responses to your surveys are neatly and automatically collected in Forms, with real time response and you can share a link.</Typography>
                        
                       </CardContent>
                     </div>
                     <Hidden xsDown>
-                      <CardMedia className={classes.cardMedia} image="https://images.pexels.com/photos/4823233/pexels-photo-4823233.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" title="" />
+                      <CardMedia className={classes.cardMedia} image="https://wallpapercave.com/wp/wp3001176.jpg" title="" />
                     </Hidden>
                   </Card>
                 </CardActionArea>
@@ -218,11 +219,11 @@ export function LandingPage () {
       
       <footer className={classes.footer} style={{}}>
         <Typography variant="h6" align="center" gutterBottom>
-          Basic Forms <small>(An Open source clone of google forms)</small>
+          Basic Forms <small>(Basic open source form with some additional features)</small>
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-         No Copyright issue. This project is <Link color="inherit" href="https://github.com/rohitsaini1196/google-forms">open source</Link>{'. '}
-       Feel free to use anything that you find helpful, Give credit if you want.
+         No Copyright issue. This project is <Link color="inherit" href="https://github.com/flembee/basic-forms">open source</Link>{'. '}
+         Feel free to use the form components for your project.
         </Typography>
         <Copyright />
       </footer>
