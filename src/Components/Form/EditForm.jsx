@@ -14,7 +14,7 @@ import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import CloseIcon from '@material-ui/icons/Close';
 import ViewListIcon from '@material-ui/icons/ViewList';
 
-import { QuestionsTab, ResponseTab } from '../';
+import { QuestionsTab, ResponseTab } from '..';
 
 import { getCurrentUser, getForm } from '../../services';
 
