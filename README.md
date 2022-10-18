@@ -62,7 +62,7 @@ $ npm run dev
 
 ## Author
 
-| [![Flembee](../basic-form/public/flembee.jpeg)](https://www.flembee.com) 	|
+| [![Flembee](./flembee.jpeg)](https://www.flembee.com) 	|
 |:---------------------------------------------------------------------------------------------------------:	|
 |                                            **Flembee**                                            	|
 
