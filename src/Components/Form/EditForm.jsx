@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -54,6 +55,8 @@ export function EditForm (props) {
 
   const [formDeatils, setFormDetails] = React.useState({});
   const [openOfAlert, setOpenOfAlert] = React.useState(false);
+
+  let history = useHistory();
 
   React.useEffect(()=>{
     setUser(getCurrentUser);  
@@ -127,7 +130,7 @@ export function EditForm (props) {
                         className={classes.menuButton}
                         aria-label="Rohit Saini's form"
                         style={{color: '#140078'}}
-                        
+                        onClick={() => history.goBack()}
                     >
                         <ViewListIcon />
                     </IconButton>
