@@ -1,11 +1,13 @@
-const axios = require("axios");
+import axios from 'axios';
 
-export default {
-    uploadImage(data){
-        return axios
+const uploadImage = (data) => (
+    axios
         .post("http://localhost:3050/", data, {
         }).then(res => {
             return res.data
         })
-    }
-}
+  );
+  
+  export {
+    uploadImage,
+  };

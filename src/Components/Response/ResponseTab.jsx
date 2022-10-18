@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 
-import formService from '../../services/formService';
+import { getResponse } from '../../services';
 
 const useStyles = makeStyles({
   table: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ResponseTab(props) {
+export function ResponseTab (props) {
   const classes = useStyles();
 
   const [formData, setFormData] = React.useState({});
@@ -26,7 +26,7 @@ function ResponseTab(props) {
       }
       var formId = props.formId
       if(formId !== undefined && formId !== ""){
-        formService.getResponse(formId)
+        getResponse(formId)
         .then((data) => { 
    
             setResponseData(data)
@@ -91,4 +91,3 @@ function ResponseTab(props) {
        </div>
   );
 }
-export default ResponseTab

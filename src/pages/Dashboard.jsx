@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Typography, InputBase, MenuItem,
@@ -11,11 +12,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
-import Forms from './Form/Forms';
-import { useHistory } from "react-router-dom";
 
-import auth from '../services/authService';
-import formService from '../services/formService';
+import { Forms } from '../components';
+
+import { getCurrentUser, logout, createForm } from '../services';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -84,8 +84,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-
-function Dashboard() {
+  export function Dashboard () {
     let history = useHistory();
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -107,18 +106,18 @@ function Dashboard() {
    
 
     React.useEffect(()=>{
-      setUser(auth.getCurrentUser())
+      setUser(getCurrentUser())
     }, []);
   
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
 
-    const logout =()=>{
+    const handleLogout =()=>{
       var logoutConfirmation = window.confirm("Really want to logout?");
 
       if(logoutConfirmation){
-        auth.logout();
+        logout();
         history.push("/login");
       }
     }
@@ -129,14 +128,14 @@ function Dashboard() {
       setFormDescription("");
     }
 
-    const createForm = ()=>{
+    const handleCreateForm = ()=>{
       var data = {
         name : formTitle,
         description: formDescription,
         createdBy: user.id
       }
       if (data.name !=="") {
-        formService.createForm(data)
+        createForm(data)
         .then((result) => { 
           history.push("/form/"+result._id);
           
@@ -260,7 +259,7 @@ function Dashboard() {
             edge="end"
             aria-label="account of current user"
             color="inherit"
-            onClick={logout}
+            onClick={handleLogout}
           >
             <AccountCircle />
           </IconButton>
@@ -316,7 +315,7 @@ function Dashboard() {
                 <Button onClick={cancelAddForm} color="primary">
                   Cancel
                 </Button>
-                <Button onClick={createForm} color="primary">
+                <Button onClick={handleCreateForm} color="primary">
                   Create
                 </Button>
               </DialogActions>
@@ -330,5 +329,3 @@ function Dashboard() {
   </div>
   );
 }
-
-export default Dashboard;

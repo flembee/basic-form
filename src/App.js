@@ -7,11 +7,8 @@ import {
 
 import './App.css';
 
-import Home from './Components/Home'
-import EditForm from './Components/Form/EditForm'
-import Login from './Components/Login'
-import PrivateRoute from './Components/util/PrivateRoute'
-import UserView from './Components/Responding/UserView'
+import { Login, Home, } from './pages'
+import { EditForm, PrivateRoute, UserView } from './components'
 
 function App() {
   return (
@@ -20,7 +17,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home}/> 
           <Route exact path="/login" component={Login}/>
-          
           <PrivateRoute path="/form/:formId" component={EditForm}/>
           <Route exact path="/s/:formId" component={UserView} />
         </Switch>

@@ -13,10 +13,9 @@ import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import CloseIcon from '@material-ui/icons/Close';
 import ViewListIcon from '@material-ui/icons/ViewList';
 
-import QuestionsTab from './QuestionsTab';
-import ResponseTab from '../Response/ResponseTab';
-import formService from '../../services/formService';
-import auth from '../../services/authService';
+import { QuestionsTab, ResponseTab } from '../';
+
+import { getCurrentUser, getForm } from '../../services';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-function EditForm(props) {
+export function EditForm (props) {
+
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
@@ -56,7 +56,7 @@ function EditForm(props) {
   const [openOfAlert, setOpenOfAlert] = React.useState(false);
 
   React.useEffect(()=>{
-    setUser(auth.getCurrentUser);  
+    setUser(getCurrentUser);  
 }, [])
 
   const clipToClipboard = ()=>{
@@ -98,7 +98,7 @@ function EditForm(props) {
         var formId = props.match.params.formId
         if(formId !== undefined){
           setFormID(formId)
-          formService.getForm(formId)
+          getForm(formId)
           .then((data) => {    
               setFormDetails(data)       
              },
@@ -223,8 +223,6 @@ function EditForm(props) {
         </div>
     );
 }
-
-export default EditForm;
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;

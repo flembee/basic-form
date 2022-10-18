@@ -3,10 +3,9 @@ import React from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent,
          DialogContentText, DialogTitle } from '@material-ui/core';
 
-import uploadService from '../../services/uploadService';
+import { uploadImage } from '../../services';
 
-function ImageUplaodModel(props){
-
+export function ImageUplaodModel (props) {
   const [image, setImage] = React.useState(undefined);
   const [imageWarning, setImageWarning]= React.useState("");
 
@@ -23,7 +22,7 @@ function ImageUplaodModel(props){
 
       const formData = new FormData()
       formData.append('myfile', image)
-      uploadService.uploadImage(formData)
+      uploadImage(formData)
       .then((data) => {
         var imageLink = data.host + "/" + data.image
         props.handleImagePopClose();
@@ -72,5 +71,3 @@ function ImageUplaodModel(props){
       </div>
     )
 } 
-
-export default ImageUplaodModel;

@@ -4,11 +4,9 @@ import { Grid, Paper, Typography, FormControlLabel, Radio, AppBar,
          Toolbar, Button, IconButton, RadioGroup, Divider } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import auth from '../../services/authService';
-import formService from '../../services/formService';
+import { isAuthenticated, getCurrentUser, getForm, submitResponse } from '../../services';
 
-function UserView(props) {
-
+export function UserView (props) {
     const [userId, setUserId] = React.useState("")
     const [formData, setFormData] = React.useState({});
     const [responseData, setResponseData] = React.useState([])
@@ -19,8 +17,8 @@ function UserView(props) {
     const [value, setValue] = React.useState('');
 
     React.useEffect(()=>{
-      if(auth.isAuthenticated()){
-        var userr = auth.getCurrentUser();
+      if(isAuthenticated()){
+        var userr = getCurrentUser();
         console.log(userr.id);
         setUserId(userr.id);  
       } else{
@@ -56,7 +54,7 @@ function UserView(props) {
         var formId = props.match.params.formId
         console.log(formId);
 
-        formService.getForm(formId)
+        getForm(formId)
         .then((data) => {             
             setFormData(data)      
             setQuestions(data.questions) 
@@ -74,7 +72,7 @@ function UserView(props) {
         
     },[props.match.params.formId]);
 
-    function submitResponse(){
+    function handleSubmitResponse(){
       var submissionData = {
         formId: formData._id,
         userId: userId,
@@ -82,7 +80,7 @@ function UserView(props) {
       }
       console.log(submissionData);
       
-      formService.submitResponse(submissionData)
+      submitResponse(submissionData)
       .then((data2) => { 
         setIsSubmitted(true)
         console.log(data2);
@@ -196,7 +194,7 @@ function UserView(props) {
                   <Grid>
                 <br></br>
                 <div style={{display: 'flex'}}>
-                  <Button variant="contained" color="primary" onClick={submitResponse}>
+                  <Button variant="contained" color="primary" onClick={handleSubmitResponse}>
                     Submit
                   </Button>
                 </div>
@@ -223,5 +221,3 @@ function UserView(props) {
       </div>
     )
 }
-
-export default UserView;

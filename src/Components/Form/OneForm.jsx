@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme)=>
       })
 );
 
-export default function OneForm(props) {
+export function OneForm (props) {
     const classes = useStyles();
 
     const [form, setForm] = React.useState({})

@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import ViewListIcon from '@material-ui/icons/ViewList';
 
-import authService from '../services/authService';
+import { isAuthenticated, loginAsGuest, logout } from '../services';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,23 +25,24 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function Login(props){
+export function Login (props) {
+
     const classes = useStyles();
     let history = useHistory();
     const [isLogined , setIsLogined] = React.useState(false);
     const { from } = props.location.state || { from: { pathname: '/' } }
     
     React.useEffect(()=>{
-        setIsLogined(authService.isAuthenticated())
+        setIsLogined(isAuthenticated())
     }, [])
 
-    const loginAsGuest = ()=>{
-        authService.loginAsGuest()
+    const handleLoginAsGuest = ()=>{
+        loginAsGuest()
         history.push(from.pathname);
     }
     
-    const logout = ()=>{
-        authService.logout();
+    const handleLogout = ()=>{
+        logout();
         setIsLogined(false);
       }
 
@@ -71,12 +72,12 @@ function Login(props){
                   (
                     <div>
                       <p>Already logged in. Want to logout?</p>
-                      <button onClick={logout}>Logout </button>
+                      <button onClick={handleLogout}>Logout </button>
                     </div>
                   ) : 
                   (
                     <Button
-                      onClick={loginAsGuest}
+                      onClick={handleLoginAsGuest}
                       variant="contained"
                       style={{textTransform: "none"}}
                       startIcon={<Avatar  src={"https://static.thenounproject.com/png/3244607-200.png"}/>  } >
@@ -90,5 +91,3 @@ function Login(props){
         </div>
       )
 }
-
-export default Login;

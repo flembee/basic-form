@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LangingPage() {
+export function LandingPage () {
   const classes = useStyles();
   let history = useHistory();
 

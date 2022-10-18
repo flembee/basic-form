@@ -15,11 +15,10 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import SaveIcon from '@material-ui/icons/Save';
 
-import ImageUplaodModel from './ImageUplaodModel';
-import formService from '../../services/formService';
+import { ImageUplaodModel } from './';
+import { autoSave } from '../../services';
 
-function QuestionsTab(props) {
-
+export function QuestionsTab (props) {
   const [questions, setQuestions]= React.useState([]);
   const [openUploadImagePop, setOpenUploadImagePop] = React.useState(false);
   const [imageContextData, setImageContextData] = React.useState({question: null, option: null});
@@ -50,7 +49,7 @@ function QuestionsTab(props) {
       questions: questions
     }
 
-    formService.autoSave(data)
+    autoSave(data)
     .then((result) => {     
          console.log(result);
          setQuestions(result.questions)
@@ -492,4 +491,3 @@ function QuestionsTab(props) {
        </div>
   );
 }
-export default QuestionsTab

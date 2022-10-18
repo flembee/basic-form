@@ -3,9 +3,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Container, CssBaseline, CircularProgress } from '@material-ui/core';
 
-import auth from '../../services/authService';
-import formService from '../../services/formService';
-import OneForm from './OneForm';
+import { OneForm } from './';
+
+import { getCurrentUser, getForms } from '../../services';
 
 const useStyles = makeStyles((theme)=>
     ({
@@ -22,8 +22,7 @@ const useStyles = makeStyles((theme)=>
       })
 );
 
-
-function Forms(props) {
+export function Forms (props) {
     const classes = useStyles();
 
     const [user, setUser] = React.useState({})
@@ -31,13 +30,13 @@ function Forms(props) {
     const [loadingForms, setLoadingForms] = React.useState(true);
 
     React.useEffect(()=>{
-        setUser(auth.getCurrentUser);  
+        setUser(getCurrentUser);  
     }, [])
     
     React.useEffect(()=>{
         if(props.userId === undefined){
         } else{
-            formService.getForms(props.userId)
+            getForms(props.userId)
             .then((forms2) => { 
                 setForms(forms2);
                 setLoadingForms(false);
@@ -75,5 +74,3 @@ function Forms(props) {
         </div>
     );
 }
-
-export default Forms;

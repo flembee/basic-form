@@ -1,8 +1,7 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-export default function DragAndDrop(){
-
+export function DragAndDrop () {
   const [items, setItems] = React.useState([ {id: "item-0", content: "item 0"},
   {id: "item-1", content: "item 1"}
   ,{id: "item-2", content: "item 2"}
