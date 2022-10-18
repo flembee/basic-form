@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/flembee/basic-form/tree/main">
-    <img src="https://img.shields.io/badge/Last%20Commit-July-green?style=flat-square&logo=github&logoColor=white"
+    <img src="https://img.shields.io/badge/Last%20Commit-September-green?style=flat-square&logo=github&logoColor=white"
          alt="GitHub last commit">
     <a href="https://github.com/flembee/basic-form/tree/develop">
     <img src="https://img.shields.io/badge/Open%20pull%20requests-0-blue?style=flat-square&logo=github&logoColor=whit"
@@ -44,7 +44,7 @@ $ cd ..
 $ npm run dev
 ```
 
- **Magic** it will automatically start the local server for backend and frontend. 
+ **Magic!!** it will automatically start the local server for backend and frontend. 
  > *Default App port is 3000 and Server port is 3050*
 
 ## Features
@@ -62,7 +62,7 @@ $ npm run dev
 
 ## Author
 
-| [![Flembee](https://www.flembee.com/static/media/logo.875da6c1810dab4c3592.png)](https://www.flembee.com) 	|
+| [![Flembee](../basic-form/public/flembee.jpeg)](https://www.flembee.com) 	|
 |:---------------------------------------------------------------------------------------------------------:	|
 |                                            **Flembee**                                            	|
 
